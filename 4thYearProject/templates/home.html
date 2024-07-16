@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--<body onload="getFictionBooks()">-->
+    
+  {% if user.is_authenticated %}
+<body onload="getPopularFantasyBooks(); getDystopianBooks(); getNewFantasyBooks(); getAdventureBooks()">
+   
+    
+
+
+ 
+
+
+
+  <h2 style="padding-top: 20px;">New Fantasy Releases</h2>
+  <div class="scrollmenu">
+      <a id="NewFantasybooks"></a>
+      
+    </div>
+
+    <h2 style="padding-top: 20px;">Popular SciFi Books</h2>
+    <div class="scrollmenu">
+      <a id="Adventurebooks"></a>
+      
+    </div>
+
+
+  <h2 style="padding-top: 20px;">Popular Fantasy Books</h2>
+  <div class="scrollmenu">
+    <a id="PopularFantasybooks"></a>
+  </div>
+  <h2 style="padding-top: 20px;">Popular Dystopian Books</h2>
+  <div class="scrollmenu">
+    <a id="Dystopianbooks"></a>
+    
+  </div>
+
+</body>
+{% else %}
+
+<body onload="getPopularFantasyBooks(); getDystopianBooks(); getNewFantasyBooks(); getAdventureBooks()">
+
+  <div class="" style="margin-bottom: 10px;">
+    <h1 class="text-5xl sm:text-6xl mt-5 text-white font-bold">
+      
+      <h1 class="text-center" style="color: #41C9E2; font-size: 100px;">Booktracker</h1>
+    </h1>
+    <div class="text-center">
+    <a class="btn" style="background-color: #ACE2E1; padding: 20px; font-size: larger; margin-top: 50px;" href="{% url 'signup' %}">Sign up</a>
+    <a class="btn" style="background-color: #e0ded8; padding: 20px; font-size: larger; margin-top: 50px;" href="{% url 'login' %}">Sign in</a>
+    </div>
+  </div>
+
+   
+    
+
+
+ 
+
+   
+    
+  <h2 style="padding-top: 20px;">New Fantasy Releases</h2>
+  <div class="scrollmenu">
+      <a id="NewFantasybooks"></a>
+      
+    </div>
+
+  <h2 style="padding-top: 20px;">Popular SciFi Books</h2>
+  <div class="scrollmenu">
+      <a id="Adventurebooks"></a>
+  </div>
+  
+  <h2 style="padding-top: 20px;">Popular Fantasy Books</h2>
+  <div class="scrollmenu">
+      <a id="PopularFantasybooks"></a>
+    
+  </div>
+
+  <h2 style="padding-top: 20px;">Popular Dystopian Books</h2>
+  <div class="scrollmenu">
+      <a id="Dystopianbooks"></a>
+  </div>
+</body>
+
+
+    
+    
+
+{% endif %}
+{% endblock content %}

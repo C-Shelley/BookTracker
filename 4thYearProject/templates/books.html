@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+  <div class = "container">
+    <div class = "text-center container">
+      <br>
+      <h2 class = "text-center">Enter the isbn of the book you want to add to reading history</h2> 
+      <br>
+      
+      <form method="GET">
+        <input  type="text" name="title"  placeholder="Search..." class="text-center">
+        <button type="submit" class="btn-secondary btn-sm">SEARCH </button>
+      </form>
+    </div> 
+    <br><br>
+    <h1 class="text-center">Your Reading History</h1>
+    <br><br>
+    <div class="row">
+      {% for books in all_books %}
+        <div class="col-md-4 col-sm-6 col-lg-3">
+          
+
+          
+          <div class="card">
+            <img class="card-img-top" src="{{ books.cover }}">
+            <div class="card-body text-center">
+              
+              
+              
+              <p class="card-title">{{ books.title }}</p>
+              <hr>
+              <p class="card-text">{{ books.author }}</p>
+              <hr>
+              <p class="card-text">Pages: {{ books.pages }}</p>
+              
+            </div>
+          </div>
+          <br><br><br>
+        </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+  {% else %}
+
+    <div class="" style="margin-bottom: 50px;">
+        <h1 class="text-5xl sm:text-6xl mt-5 text-white font-bold">
+          
+          <h1 class="text-center" style="color: #41C9E2; font-size: 100px;">Booktracker</h1>
+        </h1>
+        <h2 class="text-center" style="color: #41C9E2; ">Sign up to add books to your list</h2>
+        <div class="text-center">
+        <a class="btn" style="background-color: #ACE2E1; padding: 20px; font-size: larger; margin-top: 50px;" href="{% url 'signup' %}">Sign up</a>
+        <a class="btn" style="background-color: #e0ded8; padding: 20px; font-size: larger; margin-top: 50px;" href="{% url 'login' %}">Sign in</a>
+        </div>
+      </div>
+      {% endif %}
+{% endblock %}
